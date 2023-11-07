@@ -16,5 +16,6 @@ INFER_BATCH_SIZE = 32
 tokenizer = T5Tokenizer.from_pretrained('prot_t5_xl_bfd/')
 model = T5ForConditionalGeneration.from_pretrained('prot_t5_xl_bfd/').to('cuda')
 
-seq = 'WFHHIFRGIVHVGKTIHRLVTG'
+with open('input.txt', 'r') as f:
+    seq = f.readline()
 optimize(model,seq)
